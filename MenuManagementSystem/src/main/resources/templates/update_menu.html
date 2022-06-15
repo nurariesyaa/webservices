@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Student Management System</title>
+	
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Student Management System</h1>
+			<hr>
+			<h2>Update Student</h2>
+	
+			<form action="#" th:action="@{/saveMenu}" th:object="${menu}"
+				method="POST">
+			
+				<!-- Add hidden form field to handle update -->
+				<div class="form-group">
+					<label> Dish Name </label>
+					<input type="text" th:field="*{name}"
+					class="form-control" required>
+				</div>
+				
+				<div class="form-group">
+					<label> Dish Price </label>
+					<input type="number" th:field="*{price}"
+					class="form-control" required>
+				</div>
+				
+				<div class ="form-group">
+					<label> Category </label>
+					<select th:field="*{category}" class="form-control">
+						<option th:value="'Dish'" th:text="'Dish'"></option>
+						<option th:value="'Fast Food'" th:text="'Fast Food'"></option>
+						<option th:value="'Desert'" th:text="'Desert'"></option>
+						<option th:value="'Drink'" th:text="'Drink'"></option>
+					</select>
+				</div>
+				
+				<div class ="form-group">
+					<label> Status </label>
+					<select th:field="*{status}" class="form-control">
+						<option th:value="'Available'" th:text="'Available'"></option>
+						<option th:value="'Unavailable'" th:text="'Unavailable'"></option>
+					</select>
+				</div>
+				
+				<div class ="form-group">
+					<label> Rating </label>
+					<select th:field="*{rate}" class="form-control">
+						<option th:value="'5'" th:text="'&starf;&starf;&starf;&starf;&starf;'"></option>
+						<option th:value="'4'" th:text="'&starf;&starf;&starf;&starf;&star;'"></option>
+						<option th:value="'3'" th:text="'&starf;&starf;&starf;&star;&star;'"></option>
+						<option th:value="'2'" th:text="'&starf;&starf;&star;&star;&star;'"></option>
+						<option th:value="'1'" th:text="'&starf;&star;&star;&star;&star;'"></option>
+					</select>
+				</div>
+				
+				<button type="submit" class="btn btn-info col-2"> Update Menu</button>
+			</form>
+			<br>
+			<a th:href = "@{/}"> Back</a>
+		</div>
+	</body>
+</html>
